@@ -52,9 +52,11 @@
   --transition-med: 0.35s var(--ease-out);
 
   /* Layout */
-  --header-height: 72px;
+  --header-height: auto;
+  --header-min-height: 64px;
   --nav-height: 64px;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
 }
 
 /* --- Reset & Base --- */
@@ -79,7 +81,7 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
-  padding-top: var(--header-height);
+  padding-top: calc(var(--header-min-height) + var(--safe-top) + 16px);
   padding-bottom: calc(var(--nav-height) + var(--safe-bottom) + 8px);
 }
 
@@ -122,22 +124,23 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   z-index: 100;
-  height: var(--header-height);
+  min-height: var(--header-min-height);
   background: linear-gradient(180deg, var(--bg-dark) 60%, rgba(20, 20, 40, 0.92));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 0 16px;
-  gap: 12px;
+  padding: var(--safe-top) 12px 6px;
+  gap: 8px 12px;
 }
 
 .header-identity {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 100px;
 }
 
 .header-identity .char-name {
@@ -160,8 +163,9 @@ h1, h2, h3, h4 {
 .header-stats {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-left: auto;
+  flex-shrink: 0;
 }
 
 /* AC Badge */
@@ -170,13 +174,14 @@ h1, h2, h3, h4 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 52px;
+  width: 44px;
+  height: 46px;
   background: var(--bg-card);
   border: 1.5px solid var(--border-cyan);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-cyan);
   position: relative;
+  flex-shrink: 0;
 }
 
 .ac-badge .ac-label {
@@ -215,11 +220,12 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
   border: none;
   border-radius: var(--radius-sm);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -1020,14 +1026,60 @@ h1, h2, h3, h4 {
   }
 }
 
+/* Small phones */
+@media (max-width: 374px) {
+  .app-header {
+    padding: var(--safe-top) 8px 6px;
+    gap: 6px 8px;
+  }
+
+  .header-identity .char-name {
+    font-size: 1rem;
+  }
+
+  .header-identity .char-class {
+    font-size: 0.6rem;
+  }
+
+  .ac-badge {
+    width: 38px;
+    height: 40px;
+  }
+
+  .ac-badge .ac-value {
+    font-size: 1.1rem;
+  }
+
+  .hp-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    font-size: 1rem;
+  }
+
+  .hp-current {
+    font-size: 1.1rem;
+  }
+
+  .hp-display {
+    min-width: 44px;
+  }
+
+  .hp-control {
+    gap: 4px;
+    padding: 3px 4px;
+  }
+}
+
 @media (min-width: 768px) {
   :root {
-    --header-height: 80px;
+    --header-min-height: 72px;
   }
 
   .app-header {
     padding: 0 32px;
     gap: 20px;
+    flex-wrap: nowrap;
   }
 
   .header-identity .char-name {
