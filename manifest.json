@@ -1,0 +1,22 @@
+{
+  "name": "Bog - Ficha D&D 5e",
+  "short_name": "Bog D&D",
+  "description": "Ficha de Personagem Interativa - Bog, Clérigo Grung Nível 3",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#0ff0e0",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

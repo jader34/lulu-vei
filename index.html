@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0ff0e0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="Ficha de Personagem Interativa — Bog, Clérigo Grung do Domínio da Vida, Nível 3. D&D 5e.">
+
+  <title>Bog — Clérigo Grung | Ficha D&D 5e</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       STICKY HEADER
+       ============================================================ -->
+  <header class="app-header" role="banner">
+    <div class="header-identity">
+      <span class="char-name">🐸 Bog</span>
+      <span class="char-class">Clérigo 3 · Domínio da Vida · Grung</span>
+    </div>
+
+    <div class="header-stats">
+      <!-- Armor Class -->
+      <div class="ac-badge" id="ac-badge" title="Classe de Armadura">
+        <span class="ac-label">CA</span>
+        <span class="ac-value">12</span>
+      </div>
+
+      <!-- Hit Points -->
+      <div class="hp-control" id="hp-control">
+        <button class="hp-btn minus" id="hp-minus" aria-label="Reduzir PV">−</button>
+        <div class="hp-display">
+          <span class="hp-label">PV</span>
+          <div class="hp-values">
+            <span class="hp-current" id="hp-current">10</span>
+            <span class="hp-separator">/</span>
+            <span class="hp-max">10</span>
+          </div>
+        </div>
+        <button class="hp-btn plus" id="hp-plus" aria-label="Aumentar PV">+</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       DICE TOAST (floating)
+       ============================================================ -->
+  <div class="dice-toast" id="dice-toast" aria-live="polite">
+    <div class="toast-label"></div>
+    <div class="toast-result"></div>
+  </div>
+
+  <!-- ============================================================
+       TAB CONTENT
+       ============================================================ -->
+  <main class="tab-content" role="main">
+
+    <!-- ===================== ABA 1: STATUS ===================== -->
+    <section class="tab-panel active" id="tab-status" aria-label="Status">
+
+      <h2 class="section-title">Atributos</h2>
+      <div class="attributes-grid">
+        <div class="attr-card">
+          <div class="attr-name">FOR</div>
+          <div class="attr-mod">−2</div>
+          <div class="attr-score">7</div>
+        </div>
+        <div class="attr-card">
+          <div class="attr-name">DES</div>
+          <div class="attr-mod">+2</div>
+          <div class="attr-score">14</div>
+        </div>
+        <div class="attr-card">
+          <div class="attr-name">CON</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score">11</div>
+        </div>
+        <div class="attr-card">
+          <div class="attr-name">INT</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score">10</div>
+        </div>
+        <div class="attr-card">
+          <div class="attr-name">SAB</div>
+          <div class="attr-mod">+2</div>
+          <div class="attr-score">15</div>
+        </div>
+        <div class="attr-card">
+          <div class="attr-name">CAR</div>
+          <div class="attr-mod">+0</div>
+          <div class="attr-score">10</div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Espaços de Magia</h2>
+      <div class="spell-slots-section">
+        <div class="slot-group" data-slot-level="1">
+          <div class="slot-group-header">1º Nível — 4 espaços</div>
+          <div class="slot-orbs">
+            <input type="checkbox" class="slot-orb" data-index="0" aria-label="Slot 1 de 1º nível" checked>
+            <input type="checkbox" class="slot-orb" data-index="1" aria-label="Slot 2 de 1º nível" checked>
+            <input type="checkbox" class="slot-orb" data-index="2" aria-label="Slot 3 de 1º nível" checked>
+            <input type="checkbox" class="slot-orb" data-index="3" aria-label="Slot 4 de 1º nível" checked>
+          </div>
+        </div>
+        <div class="slot-group" data-slot-level="2">
+          <div class="slot-group-header">2º Nível — 2 espaços</div>
+          <div class="slot-orbs">
+            <input type="checkbox" class="slot-orb" data-index="0" aria-label="Slot 1 de 2º nível" checked>
+            <input type="checkbox" class="slot-orb" data-index="1" aria-label="Slot 2 de 2º nível" checked>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===================== ABA 2: COMBATE ===================== -->
+    <section class="tab-panel" id="tab-combat" aria-label="Combate">
+
+      <h2 class="section-title">Arma</h2>
+      <div class="weapon-card">
+        <div class="weapon-name">🗡️ Adaga +1</div>
+        <div class="weapon-type">Arma Simples · Acuidade · Arremesso (6/18m)</div>
+        <div class="weapon-stats">
+          <div class="weapon-stat">
+            <div class="weapon-stat-label">Ataque</div>
+            <div class="weapon-stat-value">+5</div>
+            <div class="weapon-stat-detail">DES +2 · Prof +2 · Mág +1</div>
+          </div>
+          <div class="weapon-stat">
+            <div class="weapon-stat-label">Dano</div>
+            <div class="weapon-stat-value">1d4 + 3</div>
+            <div class="weapon-stat-detail">Perfurante · DES +2 · Mág +1</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Ações Rápidas</h2>
+      <div class="quick-actions">
+        <button class="quick-btn" id="btn-initiative">
+          <span class="qb-icon">⚡</span>
+          <span class="qb-label">Iniciativa</span>
+          <span class="qb-value">+2</span>
+        </button>
+        <button class="quick-btn" id="btn-passive-perception">
+          <span class="qb-icon">👁️</span>
+          <span class="qb-label">Percepção Passiva</span>
+          <span class="qb-value">12</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ===================== ABA 3: MAGIAS ===================== -->
+    <section class="tab-panel" id="tab-spells" aria-label="Magias">
+
+      <div class="spell-filters" role="tablist" aria-label="Filtrar magias por nível">
+        <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+        <button class="filter-pill" data-filter="0" role="tab" aria-selected="false">Truques</button>
+        <button class="filter-pill" data-filter="1" role="tab" aria-selected="false">1º Nível</button>
+        <button class="filter-pill" data-filter="2" role="tab" aria-selected="false">2º Nível</button>
+      </div>
+
+      <div class="spell-list" id="spell-list" role="list">
+        <!-- Rendered by JS -->
+      </div>
+
+    </section>
+
+    <!-- ===================== ABA 4: CARACTERÍSTICAS ===================== -->
+    <section class="tab-panel" id="tab-traits" aria-label="Características">
+
+      <h2 class="section-title">Traços Raciais — Grung</h2>
+
+      <div class="trait-card racial">
+        <div class="trait-icon">☠️</div>
+        <div class="trait-name">Pele Venenosa</div>
+        <div class="trait-source">Traço Racial · Grung</div>
+        <div class="trait-desc">
+          Qualquer criatura que encostar em você com a pele exposta ou for atingida pela sua adaga envenenada deve ter sucesso em um <strong>TR de Constituição CD 12</strong> ou ficará <strong>envenenada por 1 minuto</strong>. A criatura envenenada pode repetir o teste no final de cada turno. Seu veneno de pele vermelha causa: a criatura envenenada deve usar sua ação para comer qualquer coisa ao seu alcance que considere comestível.
+        </div>
+      </div>
+
+      <div class="trait-card racial">
+        <div class="trait-icon">🌊</div>
+        <div class="trait-name">Anfíbio</div>
+        <div class="trait-source">Traço Racial · Grung</div>
+        <div class="trait-desc">
+          Você pode respirar <strong>ar e água</strong>. Entretanto, você precisa se imergir em água por pelo menos <strong>1 hora a cada 24 horas</strong> para evitar sofrer 1 nível de exaustão ao final de cada dia sem imersão.
+        </div>
+      </div>
+
+      <div class="trait-card racial">
+        <div class="trait-icon">🦿</div>
+        <div class="trait-name">Salto Parado</div>
+        <div class="trait-source">Traço Racial · Grung</div>
+        <div class="trait-desc">
+          Seu salto em distância é de até <strong>7,5 metros</strong> e seu salto em altura é de até <strong>4,5 metros</strong>, com ou sem corrida prévia — sem necessidade de teste de Atletismo.
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 24px">Característica de Classe</h2>
+
+      <div class="trait-card class-feat">
+        <div class="trait-icon">✨</div>
+        <div class="trait-name">Discípulo da Vida</div>
+        <div class="trait-source">Domínio da Vida · Clérigo Nível 1</div>
+        <div class="trait-desc">
+          Suas magias de cura são excepcionalmente eficazes. Sempre que você usar uma magia de 1º nível ou superior para restaurar pontos de vida de uma criatura, ela recupera <strong>pontos de vida adicionais iguais a 2 + o nível da magia</strong>. Por exemplo, Curar Ferimentos de 1º nível cura +3 PV extras, e de 2º nível cura +4 PV extras.
+        </div>
+      </div>
+
+      <div class="trait-card class-feat">
+        <div class="trait-icon">🛡️</div>
+        <div class="trait-name">Canalizar Divindade: Preservar a Vida</div>
+        <div class="trait-source">Domínio da Vida · Clérigo Nível 2</div>
+        <div class="trait-desc">
+          Como ação, você apresenta seu símbolo sagrado e evoca energia curativa que pode restaurar até <strong>15 PV (5 × nível de clérigo)</strong>. Escolha criaturas a até 9 metros de você e divida esses PV entre elas. Não pode restaurar PV acima da metade do máximo de PV de cada criatura. Não afeta mortos-vivos ou constructos.
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       BOTTOM NAV
+       ============================================================ -->
+  <nav class="bottom-nav" role="navigation" aria-label="Navegação principal">
+    <button class="nav-btn active" data-tab="status" id="nav-status" aria-label="Aba Status">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Status</span>
+    </button>
+    <button class="nav-btn" data-tab="combat" id="nav-combat" aria-label="Aba Combate">
+      <span class="nav-icon">⚔️</span>
+      <span class="nav-label">Combate</span>
+    </button>
+    <button class="nav-btn" data-tab="spells" id="nav-spells" aria-label="Aba Magias">
+      <span class="nav-icon">✨</span>
+      <span class="nav-label">Magias</span>
+    </button>
+    <button class="nav-btn" data-tab="traits" id="nav-traits" aria-label="Aba Características">
+      <span class="nav-icon">🐸</span>
+      <span class="nav-label">Traços</span>
+    </button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
